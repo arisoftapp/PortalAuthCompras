@@ -19,7 +19,16 @@ export class LoginComponent implements OnInit {
 
   constructor(private appi:ApiService, private router:Router) { }
 
+  errorStatus:boolean = false;
+  errorMsj:any = "Usuario o contraseña incorrectos";
+
   ngOnInit(): void {
+  }
+
+  checkLocalStorage(){
+    if(localStorage.getItem("token")){
+      this.router.navigate(['dashboard']);
+    }
   }
  
   Onlogin(form: LoginI){
@@ -28,6 +37,9 @@ export class LoginComponent implements OnInit {
       if (dataResponse.status == "ok"){
         localStorage.setItem("token", dataResponse.result.token);
         this.router.navigate([ 'dashboard']);
+      }else{
+        this.errorStatus = true;
+        this.errorMsj = dataResponse.result.eror_msg;
       }
     })
   }   

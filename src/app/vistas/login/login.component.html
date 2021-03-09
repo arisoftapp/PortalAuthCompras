@@ -12,10 +12,13 @@
     <form [formGroup] = "loginForm" (ngSubmit)="Onlogin(loginForm.value)">
       <input type="text" id="login" class="fadeIn second" placeholder="login" formControlName="Usuario">
       <input type="password" id="password" class="fadeIn third" placeholder="password" formControlName="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+      <input type="submit" class="fadeIn fourth" value="Log In" scr="../dashboard/dashboard.html">
     </form>
 
-  
+  <div class="alert alert-danger" *ngIf="errorStatus">
+    <p>{{ errorMsj }}</p>
+
+  </div>
 
   </div>
 </div>
