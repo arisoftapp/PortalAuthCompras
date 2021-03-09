@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule,routingcomponents} from './app-routing.module';
+import { AppRoutingModule, routingcomponents} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './plantillas/header/header.component';
 import { FooterComponent } from './plantillas/footer/footer.component';
+
+
 
 import {ReactiveFormsModule, FormsModule} from '@angular/forms'
 
@@ -13,7 +15,8 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms'
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    routingcomponents,
+    routingcomponents
+    
     
   ],
   imports: [
