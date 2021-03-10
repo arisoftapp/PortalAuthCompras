@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/Servicios/api/api.service';
 import { LoginI } from '../../modelos/login.interface';
-import { ResponseI} from '../../modelos/Response.interface';
+import { ResponseI} from '../../modelos/response.interface';
 import { Router} from '@angular/router';
 
 @Component({
@@ -14,13 +14,13 @@ export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
     usuario : new FormControl ('',Validators.required),
-    password : new FormControl ('',Validators.required)
+    contra : new FormControl ('',Validators.required)
   })
 
   constructor(private appi:ApiService, private router:Router) { }
 
-  errorStatus:boolean = false;
-  errorMsj:any = "Usuario o contraseña incorrectos";
+  errorsuccess:boolean = false;
+  errorMsj:any = " ";
 
   ngOnInit(): void {
   }
@@ -34,12 +34,17 @@ export class LoginComponent implements OnInit {
   Onlogin(form: LoginI){
     this.appi.loginByEmail(form).subscribe(data =>{
       let dataResponse:ResponseI = data;
-      if (dataResponse.status == "ok"){
-        localStorage.setItem("token", dataResponse.result.token);
+      console.log(dataResponse.mensaje);
+      if (dataResponse.success == true){
+        localStorage.setItem("token",dataResponse.token);
+        localStorage.setItem("usuario",dataResponse.usuario);
+        localStorage.setItem("idempresas",dataResponse.idempresa);
         this.router.navigate([ 'dashboard']);
       }else{
-        this.errorStatus = true;
-        this.errorMsj = dataResponse.result.eror_msg;
+        console.log(dataResponse);
+        this.errorsuccess = true;
+        this.errorMsj = dataResponse.mensaje;
+       
       }
     })
   }   

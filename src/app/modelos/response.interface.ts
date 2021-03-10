@@ -1,4 +1,7 @@
 export interface ResponseI{
-    status: string;
-    result: any;
+    success: Boolean;
+    token: string;
+    mensaje: string;
+    usuario: string;
+    idempresa: string;
 }
