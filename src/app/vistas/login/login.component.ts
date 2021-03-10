@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/Servicios/api/api.service';
 import { LoginI } from '../../modelos/login.interface';
-import { ResponseI} from '../../modelos/Response.interface';
+import { ResponseI} from '../../modelos/response.interface';
 import { Router} from '@angular/router';
 
 @Component({
@@ -32,10 +32,13 @@ export class LoginComponent implements OnInit {
   }
  
   Onlogin(form: LoginI){
-    this.appi.loginByEmail(form).subscribe(data =>{
+    this.appi.login(form).subscribe(data =>{
       let dataResponse:ResponseI = data;
-      if (dataResponse.status == "ok"){
+
+      if (dataResponse.success== "true"){
         localStorage.setItem("token", dataResponse.result.token);
+        localStorage.setusuario("usuario", dataResponse.result.usuario2);
+        localStorage.setidempresas("idempresas", dataResponse.result.idempresas);
         this.router.navigate([ 'dashboard']);
       }else{
         this.errorStatus = true;

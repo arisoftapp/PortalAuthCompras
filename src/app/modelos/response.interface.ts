@@ -1,4 +1,10 @@
 export interface ResponseI{
-    status: string;
+    success: string;
     result: any;
+    usuario2: string;
+    idempresas: string;
+    
 }
+
+
+

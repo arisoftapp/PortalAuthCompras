@@ -1,5 +1,27 @@
 <app-header></app-header>
 
+<div class="container">
 
-
+    <h3>Lista de Empresas</h3>
+    <br>
+    <h6>Usuario:</h6> 
+    <br><br>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">EMPRESAS</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let empresa of empresas" (click)="informacionEmpresas(empresa.codigo)">
+            <th scope="row">{{empresa.puerto}}</th>
+            <td>{{empresa.nombre}}</td>
+            <td>{{empresa.codigo}}</td>
+            
+        </tr>
+        
+        </tbody>
+    </table>
+</div>   
 <app-footer></app-footer>
