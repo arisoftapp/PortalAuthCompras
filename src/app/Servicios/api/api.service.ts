@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { LoginI } from '../../modelos/login.interface';
 import { ResponseI } from  '../../modelos/response.interface';
+<<<<<<< Updated upstream
 import {ListaempresasI} from '../../modelos/Listaempresas.interface';
+=======
+>>>>>>> Stashed changes
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { ObjectUnsubscribedError, Observable } from 'rxjs';
 
