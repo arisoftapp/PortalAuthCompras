@@ -32,13 +32,13 @@ export class LoginComponent implements OnInit {
   }
  
   Onlogin(form: LoginI){
-    this.appi.loginByEmail(form).subscribe(data =>{
+    this.appi.login(form).subscribe(data =>{
       let dataResponse:ResponseI = data;
       console.log(dataResponse.mensaje);
       if (dataResponse.success == true){
         localStorage.setItem("token",dataResponse.token);
         localStorage.setItem("usuario",dataResponse.usuario);
-        localStorage.setItem("idempresas",dataResponse.idempresa);
+        localStorage.setItem("idempresas",dataResponse.idempresas);
         this.router.navigate([ 'dashboard']);
       }else{
         console.log(dataResponse);
@@ -48,5 +48,6 @@ export class LoginComponent implements OnInit {
       }
     })
   }   
+    
 
 }

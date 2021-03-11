@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.api.getAllempresas(1).subscribe(data =>{
+    this.api.getAllempresas().subscribe(data =>{
       this.empresas = data;
       console.log(data)
     })

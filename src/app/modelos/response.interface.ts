@@ -3,5 +3,8 @@ export interface ResponseI{
     token: string;
     mensaje: string;
     usuario: string;
-    idempresa: string;
+    idempresas: string;
+    codigo: string;
+    nombre: string;
+    puerto: string;
 }
