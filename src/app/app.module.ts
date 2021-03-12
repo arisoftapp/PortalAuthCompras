@@ -10,14 +10,14 @@ import { FooterComponent } from './plantillas/footer/footer.component';
 
 import {ReactiveFormsModule, FormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
-import { VentanaComponent } from './plantillas/ventana/ventana.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    routingcomponents,
-    VentanaComponent,
+    routingcomponents
+    
   ],
   imports: [
     BrowserModule,

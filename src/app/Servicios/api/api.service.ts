@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { LoginI } from '../../modelos/login.interface';
 import { ResponseI } from  '../../modelos/response.interface';
-import {ListaempresasI} from '../../modelos/Listaempresas.interface';
+import { ListaempresasI} from '../../modelos/Listaempresas.interface';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { ObjectUnsubscribedError, Observable } from 'rxjs';
+import { previosI } from '../../modelos/previos.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,14 @@ export class ApiService {
     console.log(this.http.get((direccion)))  
     return this.http.get<ListaempresasI[]>(direccion);
   }
-  
+
+ 
+  url4: string= "http://wsar.homelinux.com:3050/getPrevios/003";
+
+  getAllprevios(page:number):Observable<previosI[]>{
+    let direccion = this.url4 + localStorage.getusuario("usuario") +   new HttpHeaders({ 'access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjaGVjayI6dHJ1ZSwiaWF0IjoxNjE1MzE0MjMzfQ.LODFS6UXJMjZDTYz98H_idbfngPBmTPk6CQVvBrGIlY' });
+    console.log(this.http.get((direccion)))  
+    return this.http.get<previosI[]>(direccion);
+  }
   
 }

@@ -21,14 +21,16 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.api.getAllempresas(1).subscribe(data =>{
       this.empresas = data;
-      console.log(data)
+      console.log
     })
+    
 
     
   }
 
   informacionEmpresas(FOLIO: any){
-    this.router.navigate(['ventana', FOLIO]);
+    this.router.navigate(['ventana1', FOLIO]);
   }
 
 }
+

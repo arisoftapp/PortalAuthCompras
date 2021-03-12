@@ -30,9 +30,9 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['dashboard']);
     }
   }
- 
+
   Onlogin(form: LoginI){
-    this.appi.loginByEmail(form).subscribe(data =>{
+    this.appi.login(form).subscribe(data =>{
       let dataResponse:ResponseI = data;
       console.log(dataResponse.mensaje);
       if (dataResponse.success == true){
