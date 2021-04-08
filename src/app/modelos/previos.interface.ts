@@ -1,6 +1,7 @@
 export interface previosI{
-    codigo: string;
-    nombre: String;
-    puerto: string;
-    
+    FOLIO: string;
+    FECHA: string;
+    ALMACEN: string;
+    TOTAL: string;
+    ESTATUS: string;
 }

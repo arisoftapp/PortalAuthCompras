@@ -7,7 +7,7 @@ import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
+  templateUrl:'./login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -19,10 +19,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private appi:ApiService, private router:Router) { }
 
+
   errorsuccess:boolean = false;
   errorMsj:any = " ";
 
   ngOnInit(): void {
+   
   }
 
   checkLocalStorage(){
@@ -34,19 +36,21 @@ export class LoginComponent implements OnInit {
   Onlogin(form: LoginI){
     this.appi.login(form).subscribe(data =>{
       let dataResponse:ResponseI = data;
-      console.log(dataResponse.mensaje);
+      let dataReponsenom:ResponseI = data;
+      console.log(dataResponse.mensaje, dataReponsenom.nom_usu);
       if (dataResponse.success == true){
         localStorage.setItem("token",dataResponse.token);
         localStorage.setItem("usuario",dataResponse.usuario);
-        localStorage.setItem("idempresas",dataResponse.idempresa);
+        localStorage.setItem("idempresas",dataResponse.idempresas);
+        localStorage.setItem("nom_usu",dataResponse.nom_usu);
         this.router.navigate([ 'dashboard']);
       }else{
         console.log(dataResponse);
         this.errorsuccess = true;
         this.errorMsj = dataResponse.mensaje;
-       
       }
     })
-  }   
+  }
+
 
 }

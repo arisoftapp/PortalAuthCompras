@@ -1,6 +1,7 @@
 export interface LoginI{
-    ususario: string;
+    usuario: string;
     contra: string;
     idempresas: string;
+    nom_usu: string;
 
 }

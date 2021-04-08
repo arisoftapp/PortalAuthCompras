@@ -1,6 +1,6 @@
 export interface ListaempresasI{
     codigo: string;
-    nombre: String;
+    nombre: string;
     puerto: string;
-    
+    empresas: [];
 }

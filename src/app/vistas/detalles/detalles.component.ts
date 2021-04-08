@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Servicios/api/api.service';
 import { Router} from '@angular/router';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-previos',
@@ -9,10 +9,13 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./detalles.component.css']
 })
 export class DetallesComponent implements OnInit {
+          
+     detallesForm = new FormGroup({
+      folio : new FormControl ('',Validators.required),
+      empresa : new FormControl ('',Validators.required),
+      fecha : new FormControl ( '', Validators.required)
+     })
 
-  previos = new FormGroup({
-
-  })
   constructor(private appi:ApiService, private router:Router ) { }
 
   ngOnInit() {
@@ -21,3 +24,4 @@ export class DetallesComponent implements OnInit {
     
 
 }
+

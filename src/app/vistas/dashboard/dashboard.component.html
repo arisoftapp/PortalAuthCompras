@@ -1,27 +1,43 @@
 <app-header></app-header>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <title></title>
+  </head>
+    <body>
+      
+        <div class="container">
 
-<div class="container">
-
-    <h3>Lista de Empresas</h3>
-    <br>
-    <h6>Usuario:</h6> 
-    <br><br>
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th scope="col">EMPRESAS</th>
-            
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let empresa of empresas" (click)="informacionEmpresas(empresa.codigo)">
-            <th scope="row">{{empresa.puerto}}</th>
-            <td>{{empresa.nombre}}</td>
-            <td>{{empresa.codigo}}</td>
-            
-        </tr>
-        
-        </tbody>
-    </table>
-</div>   
+          <br>
+          <h3>Usuario:</h3>
+          <h1>Lista de empresas</h1>
+          
+         
+          <br><br>
+          <table class="table table-hover">
+              <thead>
+              <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Código</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Puerto</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let empresa of infoempresas">
+                  <th scope="row">{{empresa.codigo}}</th>
+                  <td>{{empresa.codigo}}</td>
+                  <td>{{empresa.nombre}}</td>
+                  <td>{{empresa.puerto}}</td>
+              </tr>
+              
+              </tbody>
+          </table>
+      </div> 
+   </body>
+</html>
 <app-footer></app-footer>
